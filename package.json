@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-  "dev": "next dev -p 3000",
-  "build": "next build",
-  "start": "next start"
-},
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "start": "next start",
+    "export": "next export"
+  },
 
   "dependencies": {
   "next": "14.2.3",
@@ -18,5 +19,6 @@
   "main": "next.config.js",
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "export": "next export"
 }
