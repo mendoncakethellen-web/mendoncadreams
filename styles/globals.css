@@ -1,12 +1,12 @@
 /* === Mendonça Dreams — Tema Moda Feminina Azul & Marrom === */
 
 :root {
-  --bg: #ffffff;             /* azul marinho profundo */
-  --card-bg: #121824;
+  --bg: #ffffff;
+  --card-bg: #f4f4f4;
   --text: #000000;
   --muted: #030202;
-  --accent: #6a4f0c;         /* marrom escuro sofisticado */
-  --accent-light: #6a4f0c;   /* bege dourado */
+  --accent: #6a4f0c;          /* marrom elegante */
+  --accent-light: #b38b2e;    /* dourado suave */
   --success: #00c38a;
   --danger: #050404;
   --radius: 14px;
@@ -15,7 +15,7 @@
 }
 
 * {
-  box-sizing: border-box; 
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -32,7 +32,7 @@ html, body {
 
 /* ===== NAVBAR ===== */
 .navbar {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   padding: 1rem 0;
@@ -48,12 +48,13 @@ html, body {
 }
 
 .brand-text {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--accent-light);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent);
   letter-spacing: 1px;
 }
 
+/* LOGO */
 .logo-img {
   width: 52px;
   height: auto;
@@ -64,14 +65,19 @@ html, body {
   transform: scale(1.05);
 }
 
+/* LINKS DA NAVBAR (ajuste principal) */
+.navbar a,
 .nav-link {
-  color: var(--text);
+  color: var(--accent-light);
   text-decoration: none;
   font-weight: 500;
   transition: var(--transition);
 }
+
+.navbar a:hover,
 .nav-link:hover {
-  color: var(--accent-light);
+  color: var(--accent);
+  text-decoration: none;
 }
 
 /* ===== HERO SECTION ===== */
@@ -80,16 +86,19 @@ html, body {
   padding: 80px 20px 60px;
   background: linear-gradient(180deg, #091136 0%, #130a2d 100%);
 }
+
 .hero-section h1 {
   font-size: 2.4rem;
   color: var(--accent-light);
   margin-bottom: 0.5rem;
 }
+
 .hero-section .lead {
   color: var(--muted);
   font-size: 1.1rem;
   margin-bottom: 1.8rem;
 }
+
 .hero-img {
   max-width: 720px;
   width: 100%;
@@ -97,6 +106,7 @@ html, body {
   box-shadow: var(--shadow);
   transition: transform 0.3s ease;
 }
+
 .hero-img:hover {
   transform: scale(1.02);
 }
@@ -105,6 +115,7 @@ html, body {
 section {
   padding: 60px 0;
 }
+
 .container h2 {
   color: var(--accent-light);
   margin-bottom: 24px;
@@ -119,20 +130,24 @@ section {
   box-shadow: var(--shadow);
   transition: var(--transition);
 }
+
 .product-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
 }
+
 .product-card img {
   border-radius: 10px;
   width: 100%;
   object-fit: cover;
   height: 280px;
 }
+
 .product-card h3 {
   margin: 14px 0 6px;
   font-size: 1.1rem;
 }
+
 .price {
   color: var(--muted);
   font-weight: 600;
@@ -148,19 +163,23 @@ section {
   transition: var(--transition);
   font-weight: 500;
 }
+
 .btn-primary {
   background: linear-gradient(90deg, var(--accent), var(--accent-light));
   color: #fff;
 }
+
 .btn-primary:hover {
   filter: brightness(1.1);
   transform: translateY(-2px);
 }
+
 .btn-ghost {
   background: transparent;
   color: var(--accent-light);
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
+
 .btn-ghost:hover {
   background: rgba(255, 255, 255, 0.05);
 }
@@ -180,75 +199,110 @@ section {
   display: flex;
   flex-direction: column;
 }
+
 .cart-sidebar.open {
   transform: translateX(0);
 }
-.cart-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  padding-bottom: 12px;
-}
-.cart-items {
-  flex: 1;
-  overflow-y: auto;
-  margin-top: 14px;
-}
-.cart-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-}
-.cart-item img {
-  width: 70px;
-  height: 70px;
-  border-radius: 10px;
-  object-fit: cover;
-}
-.cart-item h4 {
-  margin: 0;
-  font-size: 0.95rem;
-  color: var(--text);
-}
-.cart-item p {
-  color: var(--muted);
-  font-size: 0.85rem;
-}
-.cart-footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  padding-top: 14px;
-}
 
 /* ===== CONTACT FORM ===== */
+/* ===== FORMULÁRIO DE CONTATO REESTILIZADO ===== */
+.contact-section {
+  background: #fff;
+  padding: 80px 20px;
+}
+
+.contact-section h2 {
+  text-align: center;
+  color: var(--accent);
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+/* ===== FORMULÁRIO DE CONTATO REESTILIZADO ===== */
+.contact-section {
+  background: #fff;
+  padding: 80px 20px;
+}
+
+.contact-section h2 {
+  text-align: center;
+  color: var(--accent);
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
 .contact-form {
-  max-width: 480px;
+  max-width: 600px;
   margin: 0 auto;
+  background: #fafafa;
+  padding: 40px;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 18px;
 }
+
 .contact-form label {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  font-weight: 600;
+  color: var(--accent);
   font-size: 0.95rem;
-  color: var(--accent-light);
+  margin-bottom: 6px;
 }
+
 .contact-form input,
 .contact-form textarea {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 8px;
-  color: var(--text);
-  padding: 10px;
-  resize: none;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 0.95rem;
+  color: #333;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
 }
+
 .contact-form input:focus,
 .contact-form textarea:focus {
-  outline: 1px solid var(--accent-light);
+  border: 1px solid var(--accent-light);
+  box-shadow: 0 0 0 3px rgba(179, 139, 46, 0.2);
+  outline: none;
+}
+
+/* BOTÃO */
+.contact-form button {
+  width: 100%;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  padding: 14px 0;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.contact-form button:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+
+/* Mensagem de status */
+.contact-form div[style] {
+  text-align: center;
+  margin-top: 10px;
+  color: var(--muted);
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .contact-form {
+    padding: 25px;
+  }
 }
 
 /* ===== FOOTER ===== */
@@ -266,21 +320,26 @@ footer {
   .hero-section h1 {
     font-size: 1.8rem;
   }
+
   .cart-sidebar {
     width: 100%;
   }
+
   .product-card img {
     height: 220px;
   }
 }
-/* ===== extras para vitrine fashion ===== */
-.product-media { position: relative; }
+
+/* ===== EXTRAS PARA VITRINE ===== */
+.product-media {
+  position: relative;
+}
 
 .product-media .overlay {
   position: absolute;
   inset: auto 0 0 0;
   display: flex;
-  gap:12px;
+  gap: 12px;
   justify-content: center;
   align-items: center;
   padding: 14px;
@@ -290,7 +349,9 @@ footer {
   backdrop-filter: blur(4px);
 }
 
-.product-card:hover .overlay { transform: translateY(0%); }
+.product-card:hover .overlay {
+  transform: translateY(0%);
+}
 
 .product-tag {
   position: absolute;
@@ -300,15 +361,10 @@ footer {
   color: #fff;
   padding: 6px 10px;
   border-radius: 999px;
-  font-weight:700;
-  font-size:12px;
+  font-weight: 700;
+  font-size: 12px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.4);
   letter-spacing: .6px;
-}
-
-.product-fashion h3 {
-  font-weight:600;
-  letter-spacing: .2px;
 }
 
 .container {
