@@ -1,0 +1,11 @@
+# dependências
+node_modules
+
+# build do Next.js
+.next
+
+# logs e env
+npm-debug.log*
+yarn-debug.log*
+.env.local
+.DS_Store

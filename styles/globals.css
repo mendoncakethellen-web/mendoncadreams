@@ -1,0 +1,319 @@
+/* === Mendonça Dreams — Tema Moda Feminina Azul & Marrom === */
+
+:root {
+  --bg: #ffffff;             /* azul marinho profundo */
+  --card-bg: #121824;
+  --text: #000000;
+  --muted: #030202;
+  --accent: #6a4f0c;         /* marrom escuro sofisticado */
+  --accent-light: #6a4f0c;   /* bege dourado */
+  --success: #00c38a;
+  --danger: #050404;
+  --radius: 14px;
+  --shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+  --transition: all 0.25s ease;
+}
+
+* {
+  box-sizing: border-box; 
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Poppins', 'Inter', system-ui, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-text {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--accent-light);
+  letter-spacing: 1px;
+}
+
+.logo-img {
+  width: 52px;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+.logo-img:hover {
+  transform: scale(1.05);
+}
+
+.nav-link {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+}
+.nav-link:hover {
+  color: var(--accent-light);
+}
+
+/* ===== HERO SECTION ===== */
+.hero-section {
+  text-align: center;
+  padding: 80px 20px 60px;
+  background: linear-gradient(180deg, #091136 0%, #130a2d 100%);
+}
+.hero-section h1 {
+  font-size: 2.4rem;
+  color: var(--accent-light);
+  margin-bottom: 0.5rem;
+}
+.hero-section .lead {
+  color: var(--muted);
+  font-size: 1.1rem;
+  margin-bottom: 1.8rem;
+}
+.hero-img {
+  max-width: 720px;
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease;
+}
+.hero-img:hover {
+  transform: scale(1.02);
+}
+
+/* ===== PRODUCT CARDS ===== */
+section {
+  padding: 60px 0;
+}
+.container h2 {
+  color: var(--accent-light);
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.product-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+}
+.product-card img {
+  border-radius: 10px;
+  width: 100%;
+  object-fit: cover;
+  height: 280px;
+}
+.product-card h3 {
+  margin: 14px 0 6px;
+  font-size: 1.1rem;
+}
+.price {
+  color: var(--muted);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 18px;
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: 500;
+}
+.btn-primary {
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+  color: #fff;
+}
+.btn-primary:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--accent-light);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ===== CART SIDEBAR ===== */
+.cart-sidebar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 380px;
+  background: linear-gradient(180deg, rgba(18, 24, 36, 0.98), rgba(10, 15, 28, 0.96));
+  transform: translateX(110%);
+  transition: transform 0.3s ease;
+  z-index: 1200;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+.cart-sidebar.open {
+  transform: translateX(0);
+}
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding-bottom: 12px;
+}
+.cart-items {
+  flex: 1;
+  overflow-y: auto;
+  margin-top: 14px;
+}
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+.cart-item img {
+  width: 70px;
+  height: 70px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+.cart-item h4 {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+.cart-item p {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.cart-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 14px;
+}
+
+/* ===== CONTACT FORM ===== */
+.contact-form {
+  max-width: 480px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.contact-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.95rem;
+  color: var(--accent-light);
+}
+.contact-form input,
+.contact-form textarea {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  color: var(--text);
+  padding: 10px;
+  resize: none;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: 1px solid var(--accent-light);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  padding: 24px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--muted);
+  background: #0b101b;
+  font-size: 0.9rem;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 1.8rem;
+  }
+  .cart-sidebar {
+    width: 100%;
+  }
+  .product-card img {
+    height: 220px;
+  }
+}
+/* ===== extras para vitrine fashion ===== */
+.product-media { position: relative; }
+
+.product-media .overlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  display: flex;
+  gap:12px;
+  justify-content: center;
+  align-items: center;
+  padding: 14px;
+  transform: translateY(110%);
+  transition: transform 0.28s ease;
+  background: linear-gradient(180deg, rgba(10,15,28,0.0), rgba(10,15,28,0.6));
+  backdrop-filter: blur(4px);
+}
+
+.product-card:hover .overlay { transform: translateY(0%); }
+
+.product-tag {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  background: var(--accent);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight:700;
+  font-size:12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+  letter-spacing: .6px;
+}
+
+.product-fashion h3 {
+  font-weight:600;
+  letter-spacing: .2px;
+}
+
+.container {
+  padding-left: 20px;
+  padding-right: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
