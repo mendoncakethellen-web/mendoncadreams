@@ -376,3 +376,50 @@ footer {
 html {
   scroll-behavior: smooth;
 }
+
+/* Melhorias de Profissionalismo */
+body {
+  font-family: 'Poppins', sans-serif; /* Garantir consistência tipográfica */
+  line-height: 1.6; /* Melhor legibilidade */
+}
+
+/* Acessibilidade: Melhorar contraste */
+.btn-primary {
+  color: #fff !important; /* Forçar contraste alto */
+}
+
+/* Responsividade: Ajustes para mobile */
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 1.6rem; /* Tamanho mais adequado */
+  }
+  .product-card {
+    margin-bottom: 20px; /* Espaçamento melhor */
+  }
+}
+
+/* Animações sutis para interatividade */
+.product-card:hover {
+  transform: translateY(-4px); /* Leve elevação */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Footer aprimorado */
+footer {
+  background: linear-gradient(180deg, #0b101b, #091136);
+  padding: 40px 0;
+  text-align: center;
+  color: #b38b2e;
+}
+footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+footer a {
+  color: #b38b2e;
+  text-decoration: none;
+  margin: 0 10px;
+}
+footer a:hover {
+  text-decoration: underline;
+}

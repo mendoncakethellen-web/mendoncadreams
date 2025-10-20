@@ -20,9 +20,7 @@ export default function Home() {
   // === Recupera usuário salvo ===
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
-    }
+    if (storedUser) setUser(JSON.parse(storedUser));
   }, []);
 
   // === Recupera carrinho salvo ===
@@ -75,8 +73,9 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Mendonça Dreams — Moda Feminina</title>
-        <meta name="description" content="Mendonça Dreams — Coleção feminina premium." />
+        <title>Mendonça Dreams — Moda Feminina Premium</title>
+        <meta name="description" content="Descubra coleções femininas elegantes na Mendonça Dreams. Peças selecionadas para empoderar mulheres com estilo e sofisticação." />
+        <meta name="keywords" content="moda feminina, vestidos, blusas, elegância, Mendonça Dreams" />
       </Head>
 
       {/* === NAVBAR === */}
@@ -110,12 +109,10 @@ export default function Home() {
                 </button>
               </div>
             ) : (
-              <a className="btn btn-ghost" href="/login">Entrar</a>
+              <a href="/login" className="btn btn-primary" style={{ padding: '6px 14px', fontSize: '0.9rem' }}>
+                Login
+              </a>
             )}
-
-            <a href="/login" className="btn btn-primary" style={{ padding: '6px 14px', fontSize: '0.9rem' }}>
-              Login
-            </a>
 
             <button className="btn btn-ghost" onClick={() => setSidebarOpen(true)}>
               Carrinho <span className="badge">{cart.reduce((s, i) => s + i.qty, 0)}</span>
@@ -129,7 +126,7 @@ export default function Home() {
         <section className="hero-section" id="home" style={{ paddingTop: 60, paddingBottom: 60 }}>
           <div className="container text-center" style={{ maxWidth: 900, margin: '0 auto' }}>
             <h1 style={{ fontSize: '2.2rem', color: 'var(--accent-light)', marginBottom: 10 }}>
-              Bem vindo a - Mendonça Dreams
+              Bem-vindo à Mendonça Dreams
             </h1>
             <p className="lead" style={{ color: 'rgba(255,255,255,0.85)', fontSize: '1.05rem', marginBottom: 30 }}>
               Peças selecionadas com atenção aos detalhes. Conforto, corte e sofisticação.
@@ -268,6 +265,7 @@ export default function Home() {
       <footer>
         <div className="container text-center py-3">
           <p>&copy; {new Date().getFullYear()} Mendonça Dreams — Todos os direitos reservados</p>
+          <p><a href="/privacidade">Política de Privacidade</a> | <a href="/termos">Termos de Uso</a></p>
         </div>
       </footer>
     </>
@@ -277,10 +275,18 @@ export default function Home() {
 // === FORMULÁRIO DE CONTATO ===
 function ContactForm() {
   const [status, setStatus] = useState('');
+  const [errors, setErrors] = useState({});
 
   async function handleSubmit(e) {
     e.preventDefault();
     const f = Object.fromEntries(new FormData(e.target));
+    const newErrors = {};
+    if (!f.name) newErrors.name = 'Nome é obrigatório';
+    if (!f.email || !f.email.includes('@')) newErrors.email = 'E-mail válido é obrigatório';
+    if (!f.message) newErrors.message = 'Mensagem é obrigatória';
+    setErrors(newErrors);
+    if (Object.keys(newErrors).length > 0) return;
+
     const res = await fetch('/api/contact', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -288,8 +294,9 @@ function ContactForm() {
     });
 
     if (res.ok) {
-      setStatus('Mensagem enviada com sucesso!');
+      setStatus('Mensagem enviada com sucesso! Entraremos em contato em breve.');
       e.target.reset();
+      setErrors({});
     } else {
       setStatus('Erro ao enviar. Tente novamente.');
     }
@@ -297,9 +304,9 @@ function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="contact-form" style={{ marginTop: 12 }}>
-      <label>Nome<input name="name" required /></label>
-      <label>Email<input name="email" type="email" required /></label>
-      <label>Mensagem<textarea name="message" rows="4" required /></label>
+      <label>Nome<input name="name" required />{errors.name && <span style={{ color: 'red' }}>{errors.name}</span>}</label>
+      <label>Email<input name="email" type="email" required />{errors.email && <span style={{ color: 'red' }}>{errors.email}</span>}</label>
+      <label>Mensagem<textarea name="message" rows="4" required />{errors.message && <span style={{ color: 'red' }}>{errors.message}</span>}</label>
       <button type="submit" className="btn btn-primary">Enviar</button>
       <div style={{ marginTop: 12, color: 'var(--muted)' }}>{status}</div>
     </form>

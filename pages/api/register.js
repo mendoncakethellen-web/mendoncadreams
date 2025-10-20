@@ -26,3 +26,7 @@ export default async function handler(req, res) {
 
   res.status(200).json({ message: 'Usuário registrado com sucesso!' });
 }
+// Após verificar se o e-mail já existe
+if (users.find((u) => u.email === email)) {
+  return res.status(400).json({ error: 'Este e-mail já está cadastrado. Tente fazer login.' });
+}

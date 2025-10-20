@@ -23,17 +23,14 @@ export default async function handler(req, res) {
     const users = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
     const user = users.find((u) => u.email === email);
 
-    if (!user) {
-      console.error('❌ Usuário não encontrado:', email);
-      return res.status(400).json({ error: 'Usuário não encontrado.' });
-    }
 
-    // Compara senha
-    const valid = await bcrypt.compare(password, user.password);
-    if (!valid) {
-      console.error('❌ Senha incorreta para:', email);
-      return res.status(400).json({ error: 'Senha incorreta.' });
-    }
+   // Substitua console.error por mensagens mais profissionais
+if (!user) {
+  return res.status(400).json({ error: 'E-mail não encontrado. Verifique e tente novamente.' });
+}
+if (!valid) {
+  return res.status(400).json({ error: 'Senha incorreta. Tente novamente ou redefina sua senha.' });
+}
 
     // Gera token JWT
     const token = generateToken(user);
